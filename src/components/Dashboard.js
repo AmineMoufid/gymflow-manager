@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { FiUsers, FiUserCheck, FiUserX, FiDollarSign } from 'react-icons/fi';
-import MemberForm from './MemberForm';
+import { FiUsers, FiUserCheck, FiUserX, FiDollarSign, FiPlus } from 'react-icons/fi';
+import MemberModal from './MemberModal';
 import MemberList from './MemberList';
 import StatsCard from './StatsCard';
 
 function Dashboard() {
   const [members, setMembers] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingMember, setEditingMember] = useState(null);
 
   // Load members from localStorage
@@ -64,22 +65,42 @@ function Dashboard() {
       return sum + (prices[member.membership] || 0);
     }, 0);
     
-    document.getElementById('active-count').textContent = activeCount;
-    document.getElementById('revenue').textContent = `$${totalRevenue.toFixed(2)}`;
+    const activeElement = document.getElementById('active-count');
+    const revenueElement = document.getElementById('revenue');
+    if (activeElement) activeElement.textContent = activeCount;
+    if (revenueElement) revenueElement.textContent = `$${totalRevenue.toFixed(2)}`;
   }, [members]);
 
   const addMember = (member) => {
     setMembers([...members, member]);
+    setIsModalOpen(false);
   };
 
   const updateMember = (updatedMember) => {
     setMembers(members.map(m => m.id === updatedMember.id ? updatedMember : m));
+    setIsModalOpen(false);
+    setEditingMember(null);
   };
 
   const deleteMember = (id) => {
     if (window.confirm('Are you sure you want to delete this member?')) {
       setMembers(members.filter(m => m.id !== id));
     }
+  };
+
+  const openAddModal = () => {
+    setEditingMember(null);
+    setIsModalOpen(true);
+  };
+
+  const openEditModal = (member) => {
+    setEditingMember(member);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setEditingMember(null);
   };
 
   const stats = {
@@ -122,19 +143,48 @@ function Dashboard() {
         />
       </div>
 
+      <div className="quick-stats">
+        <div className="quick-stat">
+          <span className="label">Today's Check-ins:</span>
+          <span className="value">12</span>
+        </div>
+        <div className="quick-stat">
+          <span className="label">Expiring this week:</span>
+          <span className="value">5</span>
+        </div>
+        <div className="quick-stat">
+          <span className="label">New this month:</span>
+          <span className="value">8</span>
+        </div>
+      </div>
+
       <div className="main-grid">
-        <MemberForm 
-          addMember={addMember}
-          updateMember={updateMember}
-          editingMember={editingMember}
-          setEditingMember={setEditingMember}
-        />
+        <div className="list-header">
+          <div className="list-header-left">
+            <h2>Members Directory</h2>
+            <span className="total-badge">{stats.total} total</span>
+          </div>
+          <button className="add-member-btn" onClick={openAddModal}>
+            <FiPlus /> Add New Member
+          </button>
+        </div>
+        
         <MemberList 
           members={members}
           deleteMember={deleteMember}
-          editMember={setEditingMember}
+          editMember={openEditModal}
         />
       </div>
+
+      {isModalOpen && (
+        <MemberModal 
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          addMember={addMember}
+          updateMember={updateMember}
+          editingMember={editingMember}
+        />
+      )}
     </div>
   );
 }
