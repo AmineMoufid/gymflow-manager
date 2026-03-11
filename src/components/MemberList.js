@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FiSearch, FiEdit2, FiTrash2, FiUsers, FiCalendar, FiDollarSign } from 'react-icons/fi';
+import { FiSearch, FiEdit2, FiTrash2, FiUsers } from 'react-icons/fi';
 
 function MemberList({ members, deleteMember, editMember }) {
   const [searchTerm, setSearchTerm] = useState('');
@@ -36,7 +36,7 @@ function MemberList({ members, deleteMember, editMember }) {
   const filteredMembers = members.filter(member => {
     const matchesSearch = member.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          member.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         member.phone.includes(searchTerm);
+                         (member.phone && member.phone.includes(searchTerm));
     
     if (filter === 'all') return matchesSearch;
     if (filter === 'active') return matchesSearch && member.active;
