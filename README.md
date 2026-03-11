@@ -1,35 +1,47 @@
 # 🏋️ GymFlow Manager
 
-GymFlow Manager is a modern React dashboard designed to help gym managers efficiently manage their members and track gym activity.
+GymFlow Manager is a modern **React dashboard** that allows gym managers to manage members, track activity, and monitor gym statistics in one place.
 
-This project demonstrates frontend development skills including React component architecture, state management, and responsive UI design.
-
----
-
-# 🚀 Features
-
-• Add new gym members using a dynamic form  
-• View active and inactive members  
-• Track monthly revenue  
-• Members directory with client information  
-• Dashboard statistics overview  
+The goal of this project is to demonstrate frontend development skills including **React component architecture, state management, and clean UI design**.
 
 ---
 
-# 📊 Dashboard Metrics
+# 🚀 Live Demo
 
-The dashboard provides real-time information including:
+Coming soon (deployable using Vercel or Netlify)
+
+---
+
+# 📸 Screenshots
+
+## Dashboard Overview
+![Dashboard](screenshots/dashboard.png)
+
+The dashboard provides an overview of gym activity including:
 
 - Active Members
 - Inactive Members
 - Monthly Revenue
-- Members Directory
+- Total Members
 
 ---
 
-# 📝 Add New Member Form
+## Members Directory
+![Members](screenshots/members.png)
 
-Managers can easily add new gym members with the following information:
+The members directory allows managers to:
+
+- View all gym members
+- Check membership status
+- View contact information
+- Track membership types
+
+---
+
+## Add New Member
+![Add Member](screenshots/add-member.png)
+
+The manager can easily add new members using the form by entering:
 
 - Full Name
 - Email
@@ -40,14 +52,22 @@ Managers can easily add new gym members with the following information:
 
 ---
 
+# ✨ Features
+
+- 📊 Dashboard statistics overview
+- 👥 Members directory
+- ➕ Add new gym members
+- 📱 Responsive user interface
+- ⚡ Dynamic updates using React state
+- 🧩 Modular React components
+
+---
+
 # 🛠 Technologies Used
 
 - React
 - JavaScript (ES6)
 - HTML5
 - CSS3
-- React Hooks (useState)
-
----
-
-# 📂 Project Structure
+- React Hooks (`useState`)
+- Node.js / npm
