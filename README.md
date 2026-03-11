@@ -1,47 +1,26 @@
 # 🏋️ GymFlow Manager
 
-GymFlow Manager is a modern **React dashboard** that allows gym managers to manage members, track activity, and monitor gym statistics in one place.
+GymFlow Manager is a modern **React dashboard** designed to help gym managers manage members and monitor gym activity efficiently.
 
-The goal of this project is to demonstrate frontend development skills including **React component architecture, state management, and clean UI design**.
-
----
-
-# 🚀 Live Demo
-
-Coming soon (deployable using Vercel or Netlify)
+The project demonstrates frontend development skills such as **React component architecture, state management, and responsive UI design**.
 
 ---
 
-# 📸 Screenshots
+# 📸 Dashboard Preview
 
-## Dashboard Overview
-![Dashboard](screenshots/dashboard.png)
-
-The dashboard provides an overview of gym activity including:
-
-- Active Members
-- Inactive Members
-- Monthly Revenue
-- Total Members
+![GymFlow Dashboard](screenshots/dashboard.png)
 
 ---
 
-## Members Directory
-![Members](screenshots/members.png)
+# 🚀 Features
 
-The members directory allows managers to:
+• Dashboard statistics overview  
+• Active and inactive members tracking  
+• Monthly revenue monitoring  
+• Members directory  
+• Add new member form  
 
-- View all gym members
-- Check membership status
-- View contact information
-- Track membership types
-
----
-
-## Add New Member
-![Add Member](screenshots/add-member.png)
-
-The manager can easily add new members using the form by entering:
+The manager can add a new member with:
 
 - Full Name
 - Email
@@ -52,17 +31,6 @@ The manager can easily add new members using the form by entering:
 
 ---
 
-# ✨ Features
-
-- 📊 Dashboard statistics overview
-- 👥 Members directory
-- ➕ Add new gym members
-- 📱 Responsive user interface
-- ⚡ Dynamic updates using React state
-- 🧩 Modular React components
-
----
-
 # 🛠 Technologies Used
 
 - React
@@ -70,4 +38,3 @@ The manager can easily add new members using the form by entering:
 - HTML5
 - CSS3
 - React Hooks (`useState`)
-- Node.js / npm
